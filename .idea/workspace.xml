@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20165e55-35e3-4629-960c-6021845c5d1a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/connectfour/config.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/connectfour/serialization/serializer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb" />
     </list>
     <ignored path="connectfour.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +28,7 @@
       <file leaf-file-name="file_serializer.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="9" selection-start="180" selection-end="180" vertical-scroll-proportion="0.22077923">
+            <state line="13" column="55" selection-start="258" selection-end="258" vertical-scroll-proportion="0.574026">
               <folding />
             </state>
           </provider>
@@ -342,9 +336,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32899022" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -357,7 +352,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -511,7 +505,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="9" selection-start="180" selection-end="180" vertical-scroll-proportion="0.22077923">
+        <state line="13" column="55" selection-start="258" selection-end="258" vertical-scroll-proportion="0.574026">
           <folding />
         </state>
       </provider>
