@@ -1,6 +1,6 @@
 module ConnectFour
   module Serialization
-    class SqliteSerializer < Serializer
+    class DummySerializer < Serializer
       def save(name, game_coded)
         #TODO
       end
@@ -9,5 +9,6 @@ module ConnectFour
         #TODO
       end
     end
+    #TODO: add the test
   end
 end

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20165e55-35e3-4629-960c-6021845c5d1a" name="Default" comment="" />
+    <list default="true" id="20165e55-35e3-4629-960c-6021845c5d1a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/connectfour/config.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/connectfour/serialization/serializer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb" afterPath="$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb" />
+    </list>
     <ignored path="connectfour.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,19 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game_engine.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/connectfour/game_engine.rb">
+      <file leaf-file-name="file_serializer.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="50" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/connectfour/board.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="10" selection-start="631" selection-end="632" vertical-scroll-proportion="0.7921147">
+            <state line="5" column="9" selection-start="180" selection-end="180" vertical-scroll-proportion="0.22077923">
               <folding />
             </state>
           </provider>
@@ -55,22 +54,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/spec/connectfour/matrix_visitor/visitor_collection_spec.rb" />
-        <option value="$PROJECT_DIR$/lib/connectfour.rb" />
-        <option value="$PROJECT_DIR$/lib/connectfour/matrix_visitor/horizontal_matrix_visitor.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/matrix_visitor/second_diagonal_matrix_visitor.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/matrix_visitor/vertical_matrix_visitor.rb" />
-        <option value="$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb" />
-        <option value="$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb" />
-        <option value="$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb" />
-        <option value="$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/score_calculator.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/matrix_visitor/first_diagonal_matrix_visitor.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/matrix_visitor/visitor_collection.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/serialization/game.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/serialization/serializer.rb" />
-        <option value="$PROJECT_DIR$/lib/connectfour/board.rb" />
         <option value="$PROJECT_DIR$/lib/connectfour/game_engine.rb" />
+        <option value="$PROJECT_DIR$/lib/connectfour/board.rb" />
+        <option value="$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb" />
+        <option value="$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb" />
+        <option value="$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb" />
+        <option value="$PROJECT_DIR$/lib/connectfour/config.rb" />
+        <option value="$PROJECT_DIR$/spec/connectfour/serialization/dummy_serializer.rb" />
+        <option value="$PROJECT_DIR$/spec/connectfour/serialization/serializer.rb" />
+        <option value="$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb" />
       </list>
     </option>
   </component>
@@ -100,6 +99,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,30 +183,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="connectfour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="matrix_visitor" />
+              <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="project.propSubversion" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -330,16 +321,35 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="683" height="728" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32899022" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25891474" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21279761" sideWeight="0.6710098" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -347,6 +357,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -377,7 +388,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Serializer base class is implemented. Some changes in bone structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Yaml configuration is added." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -393,109 +404,114 @@
     <MESSAGE value="The structure of the project's library is created" />
     <MESSAGE value="Matrix visitor and unit test bone structure is created&#10;" />
     <MESSAGE value="Serializer base class is implemented. Some changes in bone structure." />
+    <MESSAGE value="Yaml configuration is added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs19/kernel.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="836" column="8" selection-start="39274" selection-end="39274" vertical-scroll-proportion="0.33275262" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/matrix_visitor/horizontal_matrix_visitor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="103" selection-end="103" vertical-scroll-proportion="0.08688245" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="41" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/score_calculator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/matrix_visitor/first_diagonal_matrix_visitor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="49" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/matrix_visitor/vertical_matrix_visitor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/connectfour/matrix_visitor/second_diagonal_matrix_visitor.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="3" column="27" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/connectfour/matrix_visitor/visitor_collection.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="63" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="63" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/serializer.rb">
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/score_calculator.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="8" selection-start="298" selection-end="320" vertical-scroll-proportion="0.0">
+        <state line="2" column="0" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/board.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="40" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/game.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="10" selection-start="52" selection-end="52" vertical-scroll-proportion="0.05954466">
+        <state line="2" column="10" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/sqlite_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="9" selection-start="0" selection-end="202" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/inmemory_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/mongo_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="29" selection-start="309" selection-end="319" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/connectfour/game_engine.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="50" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
+        <state line="4" column="50" selection-start="135" selection-end="135" vertical-scroll-proportion="0.028960818">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/connectfour/board.rb">
+    <entry file="file://$PROJECT_DIR$/bin/config.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="10" selection-start="631" selection-end="632" vertical-scroll-proportion="0.7921147">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/connectfour_console.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/connectfour_rubygame.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/config.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="36" selection-start="218" selection-end="218" vertical-scroll-proportion="0.20272572">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/connectfour/serialization/serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="23" selection-start="215" selection-end="215" vertical-scroll-proportion="0.318569">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/connectfour/serialization/file_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="9" selection-start="180" selection-end="180" vertical-scroll-proportion="0.22077923">
           <folding />
         </state>
       </provider>
