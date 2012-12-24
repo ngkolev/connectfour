@@ -1,3 +1,5 @@
+require './serializer'
+
 module ConnectFour
   module Serialization
     class SqliteSerializer < Serializer
@@ -7,6 +9,10 @@ module ConnectFour
 
       def load(name)
         #TODO
+      end
+
+      def names
+        #TODO: implement
       end
     end
   end
