@@ -1,11 +1,12 @@
 module ConnectFour
   module Serialization
     class Game
-      attr_accessor :board, :player_on_turn
+      attr_accessor :board, :depth, :ai_player
 
-      def initialize(board, player_on_turn)
+      def initialize(board, depth, ai_player)
         @board = board
-        @player_on_turn = player_on_turn
+        @depth = depth
+        @ai_player = ai_player
       end
     end
   end

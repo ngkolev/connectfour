@@ -1,0 +1,1 @@
+#TODO: find a way to make some test of the shell after rewrite(remove dependencies of puts/display and read) if having free time

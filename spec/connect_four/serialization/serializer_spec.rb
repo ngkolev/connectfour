@@ -14,7 +14,7 @@ module ConnectFour
     #TODO: add the test
 
     describe Serialization do
-      let(:game_coded) { '5 3 1 0000000100002001222121211' }
+      let(:game_coded) { '5 3 7 1 0000000100002001222121211' }
       let(:game) do
         matrix =
           [
@@ -25,7 +25,7 @@ module ConnectFour
             [:second, :first, :second, :first, :first],
           ]
         board = Core::Board.new(5, 3, matrix)
-        Game.new(board, :first)
+        Game.new(board, 7, :first)
       end
 
       describe "#save" do
@@ -40,7 +40,8 @@ module ConnectFour
           serializer.game_coded = game_coded
           loaded_game = serializer.deserialize('saved_name')
           loaded_game.board.should eq game.board
-          loaded_game.player_on_turn.should eq :first
+          loaded_game.ai_player.should eq :first
+          loaded_game.depth.should eq 7
         end
       end
     end

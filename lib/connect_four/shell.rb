@@ -13,6 +13,7 @@ module ConnectFour
       loop do
         print '> '
         input = gets.chomp.strip
+        next if input == ''
         command_name, *params = input.split(/\s/)
         operation = @commands[command_name]
         unless operation.nil?
@@ -29,9 +30,9 @@ module ConnectFour
       min_params = operation.arity
       max_params = operation.parameters.length
       if params.length < min_params
-        puts "Too few command parameters"
+        puts 'Too few command parameters'
       elsif max_params < params.length
-        puts "Too many command parameters"
+        puts 'Too many command parameters'
       else
         operation.call(*params)
       end
@@ -43,6 +44,7 @@ module ConnectFour
       @difficulty = 7
       @board_size = 10
       @cells_to_win = 4
+      @game = nil
       @serializer = Serialization::Serializer.default
     end
 
@@ -50,6 +52,7 @@ module ConnectFour
       @commands = Hash.new
       @commands["start-game"] = method(:start_game)
       @commands["stop-game"] = method(:stop_game)
+      @commands["move"] = method(:make_move)
       @commands["saved-games"] = method(:saved_games)
       @commands["save-game"] = method(:save_game)
       @commands["load-game"] = method(:load_game)

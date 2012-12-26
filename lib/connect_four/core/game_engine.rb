@@ -5,12 +5,12 @@ module ConnectFour
       #TODO: expose board structure to be drawn
       #TODO: expose current player, to be serialized
 
-      def initialize(board_size, depth, cells_to_win, first_player, human_player)
+      def initialize(board_size, depth, cells_to_win, first_player, ai_player)
         @board = Board.new(board_size, cells_to_win)
         @depth = depth
         @current_player = first_player
-        @human_player = human_player
-        @ai_player =  human_player == :first ? :second : :first
+        @ai_player = ai_player
+        @human_player  = ai_player == :first ? :second : :first
       end
 
       def board_full?

@@ -1,10 +1,18 @@
 module ConnectFour
   module ShellCommands
     def start_game
-      #TODO
+      if @game.nil?
+        @game = GameEngine.new(@board_size, @difficulty, @cells_to_win, @first_player, @ai_player)
+      else
+        puts 'The game is already started'
+      end
     end
 
     def stop_game
+      #TODO
+    end
+
+    def make_move
       #TODO
     end
 
@@ -21,51 +29,44 @@ module ConnectFour
     end
 
     def first_player(player = nil)
-      if count.nil?
-        #TODO
-      else
-        #TODO
+      unless player.nil?
+        if player == '1'
+          @first_player = :first
+        elsif player == '2'
+          @first_player = :second
+        end
       end
+      puts "First player is the #{@first_player.to_s} one"
     end
 
     def ai_player(player = nil)
-      if count.nil?
-        #TODO
-      else
-        #TODO
+      unless player.nil?
+        if player == "1"
+          @ai_player = :first
+        elsif player == "2"
+          @ai_player = :second
+        end
       end
+      puts "AI player is the #{@ai_player.to_s} one"
     end
 
     def difficulty(value = nil)
-      if count.nil?
-        #TODO
-      else
-        #TODO
-      end
+      @difficulty = value.to_i unless value.nil?
+      puts "Difficulty: #{@difficulty}"
     end
 
     def save_method(method = nil)
-      if count.nil?
-        #TODO
-      else
-        #TODO
-      end
+      #TODO
     end
 
     def board_size(size = nil)
-      if count.nil?
-        #TODO
-      else
-        #TODO
-      end
+      @board_size = size.to_i unless size.nil?
+      puts "Board size: #{@board_size}"
     end
 
     def cells_to_win(count = nil)
-      if count.nil?
-        #TODO
-      else
-        #TODO
-      end
+      @cells_to_win = count.to_i unless count.nil?
+      puts "Cells to win: #{@cells_to_win}"
     end
 
     def exit_shell
@@ -76,6 +77,7 @@ module ConnectFour
       puts <<-eos
   start-game - starts new game
   stop-game - stops the current game
+  move [X] - make a move
   saved-games - show list of all saved games
   save-game [name] - saves the current game
   load-game [name] - loads game

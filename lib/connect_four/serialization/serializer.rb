@@ -18,18 +18,18 @@ module ConnectFour
       def serialize(name, game)
         board = game.board
         board_coded = board.board.flatten.map{ |cell| serialize_cell(cell) }.join
-        player_coded = serialize_cell(game.player_on_turn)
-        game_coded = "#{board.size} #{board.cells_to_win} #{player_coded} #{board_coded}"
+        player_coded = serialize_cell(game.ai_player)
+        game_coded = "#{board.size} #{board.cells_to_win} #{game.depth} #{player_coded} #{board_coded}"
         save(name, game_coded)
       end
 
       def deserialize(name)
-        size, cells_to_win, player_on_turn_coded, board_coded = load(name).split
+        size, cells_to_win, depth, player_coded, board_coded = load(name).split
         board_decoded = board_coded.split('').map { |cell| deserialize_cell(cell.to_i) }
         board_matrix = board_decoded.each_slice(size.to_i)
         board = Core::Board.new(size.to_i, cells_to_win.to_i, board_matrix)
-        player_on_turn = deserialize_cell(player_on_turn_coded.to_i)
-        Game.new(board, player_on_turn)
+        ai_player = deserialize_cell(player_coded.to_i)
+        Game.new(board, depth.to_i, ai_player)
       end
 
       private
