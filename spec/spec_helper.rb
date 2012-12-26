@@ -1,4 +1,2 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
-require 'connect_four'
+require_relative '../lib/connect_four'
