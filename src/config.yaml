@@ -1,7 +1,0 @@
-mongo_connection_string: localhost
-mongo_port: 27017
-mongo_database_name: connect_four_db
-
-sql_connection_string: THIS_SHOULD_BE_THE_CONN_STRING
-
-save_file_path: ./saves

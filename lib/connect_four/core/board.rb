@@ -20,10 +20,11 @@ module ConnectFour
         x_position = found_index.nil? ? @size - 1 : found_index - 1
         result = clone
         result.board[x_position][move] = player
+        result
       end
 
       def valid_move?(move)
-        board[0][move].nil?
+        0 <= move and move < @size and board[0][move].nil?
       end
 
       def last_move?

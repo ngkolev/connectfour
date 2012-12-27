@@ -11,7 +11,6 @@ module ConnectFour
         @game_coded
       end
     end
-    #TODO: add the test
 
     describe Serialization do
       let(:game_coded) { '5 3 7 1 0000000100002001222121211' }

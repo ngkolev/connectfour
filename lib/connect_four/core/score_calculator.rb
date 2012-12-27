@@ -1,6 +1,8 @@
 module ConnectFour
   module Core
     class ScoreCalculator
+      include ConnectFour::Core::Util
+
       def initialize(player, board)
         @player = player
         @board = board
@@ -8,7 +10,7 @@ module ConnectFour
 
       def score
         @total_score = 0
-        other_player = @player == :first ? :second : :first
+        other_player = other_player(@player)
         MatrixVisitor::get_visitors(@board).each do |visitor|
           add_to_score(player, visitor, 1)
           add_to_score(other_player, visitor, -1)
