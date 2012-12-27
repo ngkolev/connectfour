@@ -1,5 +1,5 @@
 require 'rubygame'
-require_relative 'menu_base'
+require_relative 'home_view'
 
 module ConnectFour
   module UI
@@ -10,13 +10,14 @@ module ConnectFour
 
       def initialize
         super
-        @screen = Screen.new([468, 468])
-        @background_color = [250, 250, 250]
+        @screen = Screen.new(Screen.get_resolution, 0, [HWSURFACE, DOUBLEBUF, FULLSCREEN])
+        @background_color = [126, 181, 214]
+        @screen.show_cursor = false
         @screen.title = 'Connect Four'
         @screen.update
         @queue = EventQueue.new
         @clock = Clock.new
-        @view = MenuBase.new(self, "MENU")
+        @view = HomeView.new(self)
       end
 
       def start
@@ -31,16 +32,25 @@ module ConnectFour
         end
       end
 
+      def start_new_game
+        #TODO
+      end
+
+      def open_load_game
+        #TODO
+      end
+
+      def open_settings
+        #TODO
+      end
+
       private
 
       def handle_events
-      @queue.each do |event|
-        case event
-          when QuitEvent then exit
-          when KeyDownEvent then @view.key_down(event.key)
-          when MouseMotionEvent then @view.mouse_moved(*event.pos)
-          when MouseDownEvent
-            @view.left_key_down(*event.pos) if event.button == MOUSE_LEFT
+        @queue.each do |event|
+          case event
+            when QuitEvent then exit
+            when KeyDownEvent then @view.key_down(event.key)
           end
         end
       end
