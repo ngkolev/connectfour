@@ -5,10 +5,10 @@ module ConnectFour
 
       attr_reader :board, :current_player, :ai_player, :depth, :human_player
 
-      def initialize(board_size, depth, cells_to_win, first_player, ai_player)
+      def initialize(board_size, depth, cells_to_win, ai_player)
         @board = Board.new(board_size, cells_to_win)
         @depth = depth
-        @current_player = first_player
+        @current_player = :first
         @ai_player = ai_player
         @human_player  = other_player(ai_player)
       end
@@ -24,7 +24,7 @@ module ConnectFour
       def try_make_move(move)
         is_valid_move = @board.valid_move?(move)
         if is_valid_move
-          board.move(move)
+          board.move(move, @human_player)
           @current_player = other_player(@current_player)
         end
         is_valid_move
@@ -46,7 +46,7 @@ module ConnectFour
           other_player =other_player(player)
           score = -negamax(new_board, depth - 1, -beta, - alpha, other_player)
           return score if beta <= score
-          alpha = score if alphe <= score
+          alpha = score if alpha <= score
         end
         alpha
       end

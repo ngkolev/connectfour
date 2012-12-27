@@ -42,7 +42,6 @@ module ConnectFour
       end
 
       def set_default_values
-        @first_player = :first
         @ai_player = :second
         @difficulty = 7
         @board_size = 10
@@ -59,7 +58,6 @@ module ConnectFour
         @commands["saved-games"] = method(:saved_games)
         @commands["save-game"] = method(:save_game)
         @commands["load-game"] = method(:load_game)
-        @commands["first-player"] = method(:first_player)
         @commands["ai-player"] = method(:ai_player)
         @commands["difficulty"] = method(:difficulty)
         @commands["save-method"] = method(:save_method)

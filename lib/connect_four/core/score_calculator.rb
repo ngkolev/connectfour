@@ -2,6 +2,7 @@ module ConnectFour
   module Core
     class ScoreCalculator
       include ConnectFour::Core::Util
+      include ConnectFour::MatrixVisitors
 
       def initialize(player, board)
         @player = player
@@ -11,8 +12,8 @@ module ConnectFour
       def score
         @total_score = 0
         other_player = other_player(@player)
-        MatrixVisitor::get_visitors(@board).each do |visitor|
-          add_to_score(player, visitor, 1)
+        MatrixVisitor::get_visitors(@board.board).each do |visitor|
+          add_to_score(@player, visitor, 1)
           add_to_score(other_player, visitor, -1)
         end
         @total_score
@@ -36,7 +37,7 @@ module ConnectFour
       end
 
       def calculate_score(captured_cells, empty_cells)
-        captured_cells * 1000 + empty * 100
+        captured_cells * 1000 + empty_cells * 100
       end
     end
   end

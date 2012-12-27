@@ -1,5 +1,11 @@
 require 'rubygame'
+
+require_relative 'game_board_view'
 require_relative 'home_view'
+require_relative 'load_game_view'
+require_relative 'pause_view'
+require_relative 'save_game_view'
+require_relative 'settings_view'
 
 module ConnectFour
   module UI
@@ -17,7 +23,8 @@ module ConnectFour
         @screen.update
         @queue = EventQueue.new
         @clock = Clock.new
-        @view = HomeView.new(self)
+        @home= HomeView.new(self)
+        @view = @home
       end
 
       def start
@@ -33,15 +40,26 @@ module ConnectFour
       end
 
       def start_new_game
-        #TODO
+        @home = @view
+        @view = GameBoardView.new(self)
       end
 
-      def open_load_game
-        #TODO
+      def continue_game
+        @view = GameBoardView.new(self)
+      end
+
+      def open_load_game_menu
+        @home = @view
+        @view = LoadGameView.new(self)
       end
 
       def open_settings
-        #TODO
+        @home = @view
+        @view = SettingsView.new(self)
+      end
+
+      def open_home
+        @view = @home
       end
 
       private

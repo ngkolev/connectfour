@@ -29,6 +29,7 @@ module ConnectFour
           when K_UP then @selected_option -= 1 unless @selected_option == 0
           when K_DOWN then @selected_option += 1 unless @selected_option == @options.length - 1
           when K_RETURN then @options[@selected_option].action.call
+          when K_ESCAPE then close_menu
         end
       end
 

@@ -5,9 +5,9 @@ module ConnectFour
 
       def start_game
         if @game.nil?
-          @game = GameEngine.new(@board_size, @difficulty, @cells_to_win, @first_player, @ai_player)
-          print "Game is started. "
-          if @first_player == @ai_player
+          @game = Core::GameEngine.new(@board_size, @difficulty, @cells_to_win, @ai_player)
+          print "Game is started."
+          if @ai_player == :first
             make_ai_move
           else
             puts "Your turn."
@@ -32,8 +32,10 @@ module ConnectFour
         else
           if @game.try_make_move(move_string.to_i)
             print_board
+            check_for_last_move
+            make_ai_move unless @game.nil?
           else
-            puts "You have made invalid move"
+            puts "You have made an invalid move"
           end
         end
       end
@@ -63,26 +65,16 @@ module ConnectFour
         end
       end
 
-      def first_player(player = nil)
-        unless player.nil?
-          if player == '1'
-            @first_player = :first
-          elsif player == '2'
-            @first_player = :second
+      def ai_player(player_code = nil)
+       unless player_code.nil?
+          player = int_to_player(player_code.to_i)
+          if player.nil?
+            puts 'Incorrect player number. Use 1 or 2'
+          else
+            @ai_player = player
           end
         end
-        puts "First player is the #{@first_player.to_s} one"
-      end
-
-      def ai_player(player = nil)
-        unless player.nil?
-          if player == "1"
-            @ai_player = :first
-          elsif player == "2"
-            @ai_player = :second
-          end
-        end
-        puts "AI player is the #{@ai_player.to_s} one"
+        puts "AI player is the #{@ai_player.to_s }"
       end
 
       def difficulty(value = nil)
@@ -116,7 +108,6 @@ module ConnectFour
     saved-games - show list of all saved games
     save-game [name] - saves the current game
     load-game [name] - loads game
-    first-player [X] - sets/shows who is the first player(0 or 1)
     ai-player [X] - sets/shows who is the AI player(0 or 1)
     difficulty [X] - sets/shows the difficulty(from 2 to 10)
     save-method [X] - sets/shows the save method (file, memory, mongo, sql)
@@ -131,28 +122,35 @@ module ConnectFour
 
       def print_board
         matrix = @game.board.board
-        puts matrix.map do line
-          line.map do cell
+        matrix_string = matrix.map do |line|
+          line.map do |cell|
             case cell
               when :first then 'X'
               when :second then 'O'
               when nil then '.'
             end
           end.join
-        end.join('\n')
+        end.join("\n")
+        puts matrix_string
+        puts
       end
 
       def make_ai_move
         puts "AI is playing"
         @game.ai_move
         print_board
+        check_for_last_move
+      end
+
+      def check_for_last_move
         if @game.board.last_move?
           human_player = other_player(@ai_player)
           case @game.winner
-            when @ai_player then puts "You lose"
-            when human_player then puts"You win"
-            else "Game over. Draw"
+            when @ai_player then puts "You lost"
+            when human_player then puts"You won"
+            else puts "Game over. Draw"
           end
+          @game = nil
         end
       end
     end
