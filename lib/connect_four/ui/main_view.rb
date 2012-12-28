@@ -17,7 +17,7 @@ module ConnectFour
       attr_accessor :surface
 
       def initialize
-        super
+        Rubygame.init
         resources_dir = File.join(File.dirname(__FILE__), '../../../', 'resources')
         Surface.autoload_dirs = [resources_dir]
         @screen = Screen.new(Screen.get_resolution, 0, [HWSURFACE, DOUBLEBUF, FULLSCREEN])

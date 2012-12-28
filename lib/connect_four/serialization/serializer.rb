@@ -1,6 +1,9 @@
 module ConnectFour
   module Serialization
     #what about if there is duplication in 'name' -> mongodb, sqlite ??
+
+    Game = Struct.new(:board, :depth, :ai_player)
+
     class Serializer
       include Core::Util
 
