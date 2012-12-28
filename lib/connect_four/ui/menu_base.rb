@@ -7,14 +7,14 @@ module ConnectFour
       include Rubygame
 
       def initialize(main_view, title)
-        @selected_option_background = [42, 117, 169]
-        @title_font_size = 90
-        @options_font_size = 50
-        @text_color = [100, 68, 54]
+        @selected_option_background = DARK_BACKGROUND
+        @title_font_size = TITLE_FONT_SIZE
+        @options_font_size = TEXT_FONT_SIZE
+        @text_color = TEXT_COLOR
+        @font_name = "../resources/#{FONT_NAME}"
         @main_view = main_view
         @title = title
         @options = []
-        @font_name = "FreeSans.ttf"
         @selected_option = 0
       end
 

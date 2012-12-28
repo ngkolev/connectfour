@@ -30,12 +30,15 @@ module ConnectFour
         if @game.nil?
           puts "To make move you must at first start the game"
         else
-          if @game.try_make_move(move_string.to_i)
-            print_board
-            check_for_last_move
-            make_ai_move unless @game.nil?
-          else
-            puts "You have made an invalid move"
+          move = move_string.to_i
+          unless move.nil?
+            if @game.try_make_move(move - 1)
+              print_board
+              check_for_last_move
+              make_ai_move unless @game.nil?
+            else
+              puts "You have made an invalid move"
+            end
           end
         end
       end
@@ -125,13 +128,14 @@ module ConnectFour
         matrix_string = matrix.map do |line|
           line.map do |cell|
             case cell
-              when :first then 'X'
-              when :second then 'O'
-              when nil then '.'
+              when :first then ' X'
+              when :second then ' O'
+              when nil then ' .'
             end
           end.join
         end.join("\n")
         puts matrix_string
+        puts 1.upto(@board_size).map { |index| index < 10 ? " #{index}" : index.to_s }.join
         puts
       end
 

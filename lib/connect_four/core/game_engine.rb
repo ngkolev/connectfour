@@ -24,16 +24,25 @@ module ConnectFour
       def try_make_move(move)
         is_valid_move = @board.valid_move?(move)
         if is_valid_move
-          board.move(move, @human_player)
-          @current_player = other_player(@current_player)
+          @board.move!(move, @human_player)
+          @current_player = @ai_player
         end
         is_valid_move
       end
 
       def ai_move
-        #TODO:
-        negamax(@board, @depth, Integer::MIN, Integer::MAX, @current_player)
-        @current_player = other_player(@current_player)
+        best_move = nil
+        alpha = Integer::MIN
+        @board.generate_valid_moves(@current_player).each do |move|
+          evaluation_board = board.move(move, @current_player)
+          score = negamax(evaluation_board, @depth, alpha, Integer::MAX, @current_player)
+          if alpha < score
+            alpha = score
+            best_move = move
+          end
+        end
+        @board.move!(best_move, @current_player)
+        @current_player = @human_playerl
       end
 
       private
@@ -43,7 +52,7 @@ module ConnectFour
         return score if board.last_move? or depth == 0
         board.generate_valid_moves(player).each do |move|
           new_board = board.move(move, player)
-          other_player =other_player(player)
+          other_player = other_player(player)
           score = -negamax(new_board, depth - 1, -beta, - alpha, other_player)
           return score if beta <= score
           alpha = score if alpha <= score

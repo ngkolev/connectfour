@@ -9,8 +9,23 @@ module ConnectFour
         @board = board.nil? ? size.times.map { [nil] * size } : board
       end
 
+      def ==(other)
+        @size == other.size and
+          @cells_to_win == other.cells_to_win and
+          @board = other.board
+      end
+
+      def clone
+        board_clone = @board.map { |line| line.clone }
+        Board.new(@size, @cells_to_win, board_clone)
+      end
+
       def generate_valid_moves(player)
         @size.times.select { |y| valid_move?(y) }
+      end
+
+      def move!(move, player)
+        @board = move(move, player).board
       end
 
       def move(move, player)
@@ -42,12 +57,6 @@ module ConnectFour
           end
         end
         nil
-      end
-
-      def ==(other)
-        @size == other.size and
-          @cells_to_win == other.cells_to_win and
-          @board = other.board
       end
 
       private

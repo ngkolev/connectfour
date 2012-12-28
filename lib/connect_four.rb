@@ -17,3 +17,5 @@ require_relative 'connect_four/serialization/mongo_serializer'
 require_relative 'connect_four/serialization/sqlite_serializer'
 
 require_relative 'connect_four/configurations'
+
+#TODO move colors to a module (with constants)
