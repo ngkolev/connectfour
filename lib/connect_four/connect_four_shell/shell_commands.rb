@@ -49,7 +49,7 @@ module ConnectFour
 
       def save_game(name)
         if @game
-          #TODO: game_object = Game.new
+          game_object = Game.new(@game.board, @game.depth, @game.ai_player)
           @serializer.serialize(game_object)
           @output << "Your game is saved"
         else
@@ -60,8 +60,13 @@ module ConnectFour
       def load_game(name)
         game_object = @serializer.deserialize(name)
         if game_object
-          #TODO
-          @output << "Game loaded"
+          game = @serializer.load(name)
+          if game
+            @game = GameEngine.from_board(game.board, game.depth, game.ai_player)
+            @output << "Game loaded"
+          else
+            @output << "Game with that name doesn't exist"
+          end
         else
           @output << "Game with that name was not found"
         end
@@ -85,12 +90,11 @@ module ConnectFour
       end
 
       def save_method(method = nil)
-        method_type = method.to_sym
         if method
-          serializer = Serializer.create_serializer(method_type)
+          serializer = Serializer.create_serializer(method.to_sym)
           if serializer
             @serializer = serializer
-            @serializer_type = method_type
+            @serializer_type = method.to_sym
           else
             @output << "Incorrect serialization method\n"
           end

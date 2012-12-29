@@ -13,6 +13,13 @@ module ConnectFour
         @human_player  = other_player(ai_player)
       end
 
+      def GameEngine.from_board(board, depth, ai_player)
+        engine = GameEngine.new(0, 0, depth, ai_player)
+        engine.board = board
+        engine.current_player = board.human_player
+        engine
+      end
+
       def last_move?
         @board.last_move?
       end
