@@ -17,15 +17,14 @@ module ConnectFour
         end
 
         it "has moves in columns that are not full" do
-          matrix = 5.times.map { [:first] + [nil] * 4 }
-          board.board = matrix
+          board.board = 5.times.map { [:first] + [nil] * 4 }
           board.generate_valid_moves(:first).to_a.should eq (1..4).to_a
         end
       end
 
       describe "#move" do
         it "places player's discs not correct location'" do
-          board.move(3, :first)
+          board.move!(3, :first)
           board.board.should eq\
           [
             [nil, nil, nil, nil, nil],
@@ -35,7 +34,7 @@ module ConnectFour
             [nil, nil, nil, :first, nil],
           ]
 
-          board.move(3, :second)
+          board.move!(3, :second)
           board.board.should eq\
           [
             [nil, nil, nil, nil, nil],
@@ -45,7 +44,7 @@ module ConnectFour
             [nil, nil, nil, :first, nil],
           ]
 
-          board.move(4, :first)
+          board.move!(4, :first)
           board.board.should eq\
           [
             [nil, nil, nil, nil, nil],

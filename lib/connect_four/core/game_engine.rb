@@ -5,7 +5,7 @@ module ConnectFour
 
       attr_reader :board, :current_player, :ai_player, :depth, :human_player
 
-      def initialize(board_size, depth, cells_to_win, ai_player)
+      def initialize(board_size, depth, cells_to_win, ai_player = :second)
         @board = Board.new(board_size, cells_to_win)
         @depth = depth
         @current_player = :first

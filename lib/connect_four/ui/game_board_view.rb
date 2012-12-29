@@ -33,11 +33,11 @@ module ConnectFour
       private
 
       def draw_board
-        Draw#line(@main_view.surface, [0, 0], [100, 100], [0, 0, 0])
+        #TODO Draw#line(@main_view.surface, [0, 0], [100, 100], [0, 0, 0])
       end
 
       def draw_hand
-        #TODO only if it's human's turn
+        #TODO only if it's human's turn  !!
         rect = @hand_image.make_rect
         rect.centerx = @selected_board_row * 50
         @hand_image.blit(@main_view.surface, rect)

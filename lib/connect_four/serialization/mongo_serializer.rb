@@ -15,7 +15,7 @@ module ConnectFour
 
       def load(name)
         result = @collection.find_one("_id" => name)
-        result.nil? ? nil : result["game"]
+        result ? result['game'] : nil
       end
 
       def names

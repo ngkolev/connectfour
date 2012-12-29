@@ -2,109 +2,118 @@ module ConnectFour
   module ConnectFourShell
     module ShellCommands
       include Core::Util
+      include Serialization
 
       def start_game
-        if @game.nil?
+        unless @game
           @game = Core::GameEngine.new(@board_size, @difficulty, @cells_to_win, @ai_player)
-          print "Game is started."
-          if @ai_player == :first
-            make_ai_move
-          else
-            puts "Your turn."
+          @output << "Game is started. "
+          if @ai_player == :first then make_ai_move
+          else @output << "Your turn."
           end
         else
-          puts 'The game is already started'
+          @output << 'The game is already started'
         end
       end
 
       def stop_game
-        if @game.nil?
-          puts 'Game is already stopped'
-        else
+        if @game
           @game = nil
-          puts 'Game is stopped'
+          @output << 'Game is stopped'
+        else
+          @output << 'Game is already stopped'
         end
       end
 
       def make_move(move_string)
-        if @game.nil?
-          puts "To make move you must at first start the game"
-        else
+        if @game
           move = move_string.to_i
-          unless move.nil?
+          if move
             if @game.try_make_move(move - 1)
               print_board
               check_for_last_move
-              make_ai_move unless @game.nil?
+              make_ai_move if @game
             else
-              puts "You have made an invalid move"
+              @output << "You have made an invalid move"
             end
           end
+        else
+          @output << "To make move you must at first start the game"
         end
       end
 
       def saved_games
-        puts "SAVED GAMES:\n"
-        puts @serializer.names.map{ |name| "\t#{name}" }.join("\n")
+        @output << "SAVED GAMES:\n"
+        @output << @serializer.names.map{ |name| "\t#{name}" }.join("\n")
       end
 
       def save_game(name)
-        if @game.nil?
-          puts "You are not playing a game. There is nothing to be saved"
-        else
+        if @game
           #TODO: game_object = Game.new
           @serializer.serialize(game_object)
-          puts "Your game is saved"
+          @output << "Your game is saved"
+        else
+          @output << "You are not playing a game. There is nothing to be saved"
         end
       end
 
       def load_game(name)
         game_object = @serializer.deserialize(name)
-        if game_object.nil?
-          puts "Game with that name was not found"
-        else
+        if game_object
           #TODO
-          puts "Game loaded"
+          @output << "Game loaded"
+        else
+          @output << "Game with that name was not found"
         end
       end
 
       def ai_player(player_code = nil)
-       unless player_code.nil?
+       if player_code
           player = int_to_player(player_code.to_i)
-          if player.nil?
-            puts 'Incorrect player number. Use 1 or 2'
-          else
+          if player
             @ai_player = player
+          else
+            @output << 'Incorrect player number. Use 1 or 2'
           end
         end
-        puts "AI player is the #{@ai_player.to_s }"
+        @output << "AI player is the #{@ai_player.to_s }"
       end
 
       def difficulty(value = nil)
-        @difficulty = value.to_i unless value.nil?
-        puts "Difficulty: #{@difficulty}"
+        @difficulty = value.to_i if value
+        @output << "Difficulty: #{@difficulty}"
       end
 
       def save_method(method = nil)
-        #TODO
+        method_type = method.to_sym
+        if method
+          serializer = Serializer.create_serializer(method_type)
+          if serializer
+            @serializer = serializer
+            @serializer_type = method_type
+          else
+            @output << "Incorrect serialization method\n"
+          end
+        end
+        @output << "Current serialization method is #{@serializer_type.to_s}"
       end
 
       def board_size(size = nil)
-        @board_size = size.to_i unless size.nil?
-        puts "Board size: #{@board_size}"
+        @board_size = size.to_i if size
+        @output << "Board size: #{@board_size}"
       end
 
       def cells_to_win(count = nil)
-        @cells_to_win = count.to_i unless count.nil?
-        puts "Cells to win: #{@cells_to_win}"
+        @cells_to_win = count.to_i if count
+        @output << "Cells to win: #{@cells_to_win}"
       end
 
       def exit_shell
-        exit
+        @on_exit_handler.call if @on_exit_handler
       end
 
       def help
-        puts <<-eos
+        @output << <<-eos
     start-game - starts new game
     stop-game - stops the current game
     move [X] - make a move
@@ -134,13 +143,15 @@ module ConnectFour
             end
           end.join
         end.join("\n")
-        puts matrix_string
-        puts 1.upto(@board_size).map { |index| index < 10 ? " #{index}" : index.to_s }.join
-        puts
+        @output << "#{matrix_string}\n"
+        @output << 1.upto(@board_size).map do |index|
+          index < 10 ? " #{index}" : index.to_s
+        end.join
+        @output << "\n"
       end
 
       def make_ai_move
-        puts "AI is playing"
+        @output << "AI is playing\n"
         @game.ai_move
         print_board
         check_for_last_move
@@ -149,10 +160,10 @@ module ConnectFour
       def check_for_last_move
         if @game.board.last_move?
           human_player = other_player(@ai_player)
-          case @game.winner
-            when @ai_player then puts "You lost"
-            when human_player then puts"You won"
-            else puts "Game over. Draw"
+          @output << case @game.winner
+            when @ai_player then "You lost"
+            when human_player then "You won"
+            else "Game over. Draw"
           end
           @game = nil
         end

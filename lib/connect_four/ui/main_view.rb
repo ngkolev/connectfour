@@ -32,7 +32,7 @@ module ConnectFour
         @game = Core::GameEngine.new(10, 3, 4, :second) #TODO board_size, depth, cells_to_win, ai_player
       end
 
-      def start
+      def init
         begin
           loop do
             @clock.tick

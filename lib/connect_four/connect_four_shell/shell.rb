@@ -9,22 +9,22 @@ module ConnectFour
       def initialize
         set_default_values
         register_commands
+        @game = nil
+        @output = ""
       end
 
-      def start
-        loop do
-          print 'CONNECT FOUR> '
-          input = gets.chomp.strip
-          next if input == ''
-          command_name, *params = input.split(/\s/)
-          operation = @commands[command_name]
-          unless operation.nil?
-            invoke_operation(operation, params)
-          else
-            puts 'Command is not recognized'
-          end
-          puts
+      def invoke(command_line)
+        command_name, *params = command_line.split(/\s/)
+        operation = @commands[command_name]
+        if operation
+          invoke_operation(operation, params)
+        else
+           'Command is not recognized'
         end
+      end
+
+      def on_exit(&on_exit_handler)
+        @on_exit_handler = on_exit_handler
       end
 
       private
@@ -33,21 +33,24 @@ module ConnectFour
         min_params = operation.arity
         max_params = operation.parameters.length
         if params.length < min_params
-          puts 'Too few command parameters'
+          'Too few command parameters'
         elsif max_params < params.length
-          puts 'Too many command parameters'
+          'Too many command parameters'
         else
           operation.call(*params)
+          result = @output
+          @output = ""
+          result
         end
       end
 
       def set_default_values
         @ai_player = :second
-        @difficulty = 7
+        @difficulty = 3
         @board_size = 10
         @cells_to_win = 4
-        @game = nil
         @serializer = Serialization::Serializer.default
+        @serializer_type = Serialization::DEFAULT_SERIALIZER_TYPE
       end
 
       def register_commands

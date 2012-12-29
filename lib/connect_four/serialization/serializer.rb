@@ -2,6 +2,8 @@ module ConnectFour
   module Serialization
     #what about if there is duplication in 'name' -> mongodb, sqlite ??
 
+    DEFAULT_SERIALIZER_TYPE = :memory
+
     Game = Struct.new(:board, :depth, :ai_player)
 
     class Serializer
@@ -9,15 +11,15 @@ module ConnectFour
 
       def Serializer.create_serializer(type)
         case type
-          when InMemorySerializer then InMemorySerializer.new
-          when FileSerializer then FileSerializer.new(@save_file_path)
-          when MongoSerializer then MongoSerializer.new(@mongo_connection_string, @mongo_port, @mongo_database_name)
-          when SqliteSerializer then SqliteSerializer.new(@sql_connection_string)
+          when :memory then InMemorySerializer.new
+          when :file then FileSerializer.new(@save_file_path)
+          when :mongo then MongoSerializer.new(@mongo_connection_string, @mongo_port, @mongo_database_name)
+          when :sql then SqliteSerializer.new(@sql_connection_string)
         end
       end
 
       def Serializer.default
-        InMemorySerializer.new
+        create_serializer(DEFAULT_SERIALIZER_TYPE)
       end
 
       def serialize(name, game)

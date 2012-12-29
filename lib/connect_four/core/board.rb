@@ -6,7 +6,7 @@ module ConnectFour
       def initialize(size, cells_to_win, board = nil)
         @size = size
         @cells_to_win = cells_to_win
-        @board = board.nil? ? size.times.map { [nil] * size } : board
+        @board = board ? board : size.times.map { [nil] * size }
       end
 
       def ==(other)
@@ -32,7 +32,7 @@ module ConnectFour
         found_index = @size.times.find_index do |index|
           index == @size or not @board[index][move].nil?
         end
-        x_position = found_index.nil? ? @size - 1 : found_index - 1
+        x_position = found_index ? found_index - 1 : @size - 1
         result = clone
         result.board[x_position][move] = player
         result
@@ -43,11 +43,11 @@ module ConnectFour
       end
 
       def last_move?
-        board_full? or not winner.nil?
+        board_full? or winner
       end
 
       def board_full?
-        @board.flatten.all? { |element| not element.nil? }
+        @board.flatten.all?
       end
 
       def winner
