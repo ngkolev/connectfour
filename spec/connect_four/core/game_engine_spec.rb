@@ -59,7 +59,7 @@ module ConnectFour
       describe "#try_make_move" do
         it "makes valid move, changes the board and returns true" do
           engine.board.board = one_move_to_win_board
-          engine.try_make_move(1).should be_true
+          engine.try_make_move(0).should be_true
           engine.board.board.should eq\
             [
               [nil, nil, nil],
@@ -70,11 +70,11 @@ module ConnectFour
 
         it "return false if the move is invalid and returns the same board" do
           engine.board.board = first_won_board
-          engine.try_make_move(4).should be_false
+          engine.try_make_move(3).should be_false
           engine.board.board.should eq first_won_board
           engine.try_make_move(-1).should be_false
           engine.board.board.should eq first_won_board
-          engine.try_make_move(1).should be_false
+          engine.try_make_move(0).should be_false
           engine.board.board.should eq first_won_board
         end
       end

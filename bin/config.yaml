@@ -4,4 +4,10 @@ mongo_database_name: connect_four_db
 
 sql_connection_string: THIS_SHOULD_BE_THE_CONN_STRING
 
-save_file_path: ./saves
+save_file_path: ../saves
+
+difficulty: 2
+ai_player: second
+save_method: file
+board_size: 10
+cells_to_win: 4

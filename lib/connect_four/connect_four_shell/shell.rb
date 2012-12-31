@@ -5,9 +5,10 @@ module ConnectFour
   module ConnectFourShell
     class Shell
       include ShellCommands
+      include Serialization
 
-      def initialize
-        set_default_values
+      def initialize(settings)
+        set_default_values(settings)
         register_commands
         @game = nil
         @output = ""
@@ -44,13 +45,13 @@ module ConnectFour
         end
       end
 
-      def set_default_values
-        @ai_player = :second
-        @difficulty = 3
-        @board_size = 10
-        @cells_to_win = 4
-        @serializer = Serialization::Serializer.default
-        @serializer_type = Serialization::DEFAULT_SERIALIZER_TYPE
+      def set_default_values(settings)
+        @difficulty = settings.difficulty.to_i
+        @board_size = settings.board_size.to_i
+        @cells_to_win = settings.cells_to_win.to_i
+        @ai_player = settings.ai_player.to_sym
+        @serializer_type = settings.save_method.to_sym
+        @serializer = Serializer.create_serializer(@serializer_type)
       end
 
       def register_commands

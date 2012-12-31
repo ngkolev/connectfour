@@ -39,7 +39,7 @@ module ConnectFour
       end
 
       def valid_move?(move)
-        0 <= move and move < @size and board[0][move].nil?
+        0 <= move and move < @size and @board[0][move].nil?
       end
 
       def last_move?

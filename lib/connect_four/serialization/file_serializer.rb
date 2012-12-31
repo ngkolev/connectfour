@@ -7,6 +7,14 @@ module ConnectFour
         @save_file_path = save_file_path
       end
 
+      def names
+        Dir["#{@save_file_path}/*.#{SAVE_FORMAT}"].map do |file_name|
+          File.basename(file_name, ".#{SAVE_FORMAT}")
+        end
+      end
+
+      private
+
       def save(name, game_coded)
         full_name = get_full_path(name)
         File.open(full_name, 'w') { |file| file.write(game_coded) }
@@ -14,19 +22,13 @@ module ConnectFour
 
       def load(name)
         full_name = get_full_path(name)
-        File.open(full_name, 'r') do |file|
-          file.readline
+        if File.exists?(full_name)
+          File.open(full_name, 'r') { |file| file.readline }
         end
       end
 
       def get_full_path(name)
         "#{@save_file_path}/#{name}.#{SAVE_FORMAT}"
-      end
-
-      def names
-        Dir["#{@save_file_path}/*.#{SAVE_FORMAT}"].map do |file_name|
-          file_name.chomp(".#{SAVE_FORMAT}")
-        end
       end
     end
   end

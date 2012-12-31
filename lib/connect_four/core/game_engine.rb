@@ -1,9 +1,12 @@
+require_relative 'util'
+
 module ConnectFour
   module Core
     class GameEngine
       include Util
 
-      attr_reader :board, :current_player, :ai_player, :depth, :human_player
+      attr_reader :ai_player, :depth, :human_player
+      attr_accessor :board, :current_player
 
       def initialize(board_size, depth, cells_to_win, ai_player = :second)
         @board = Board.new(board_size, cells_to_win)
@@ -15,9 +18,13 @@ module ConnectFour
 
       def GameEngine.from_board(board, depth, ai_player)
         engine = GameEngine.new(0, 0, depth, ai_player)
+        engine.current_player = ai_player == :first ? :second : :first
         engine.board = board
-        engine.current_player = board.human_player
         engine
+      end
+
+      def ai_turn?
+        @current_player == @ai_player
       end
 
       def last_move?
@@ -49,7 +56,7 @@ module ConnectFour
           end
         end
         @board.move!(best_move, @current_player)
-        @current_player = @human_playerl
+        @current_player = @human_player
       end
 
       private
@@ -66,6 +73,7 @@ module ConnectFour
         end
         alpha
       end
+
     end
   end
 end

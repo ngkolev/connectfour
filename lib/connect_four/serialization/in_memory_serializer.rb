@@ -1,6 +1,13 @@
 module ConnectFour
   module Serialization
     class InMemorySerializer < Serializer
+      def names
+        ensure_cache_hash
+        @@cache_hash.keys
+      end
+
+      private
+
       def save(name, game_coded)
         ensure_cache_hash
         @@cache_hash[name] = game_coded
@@ -9,11 +16,6 @@ module ConnectFour
       def load(name)
         ensure_cache_hash
         @@cache_hash[name]
-      end
-
-      def names
-        ensure_cache_hash
-        @@cache_hash.keys
       end
 
       def ensure_cache_hash

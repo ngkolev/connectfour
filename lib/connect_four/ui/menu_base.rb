@@ -7,10 +7,6 @@ module ConnectFour
       include Rubygame
 
       def initialize(main_view, title)
-        @selected_option_background = DARK_BACKGROUND
-        @title_font_size = TITLE_FONT_SIZE
-        @options_font_size = TEXT_FONT_SIZE
-        @text_color = TEXT_COLOR
         @font_name = "../resources/#{FONT_NAME}"
         @main_view = main_view
         @title = title
@@ -19,15 +15,15 @@ module ConnectFour
       end
 
       def update
-        TTF.setup
 		    draw_title
         draw_options
       end
 
       def key_down(key)
         case key
-          when K_UP then @selected_option -= 1 unless @selected_option == 0
-          when K_DOWN then @selected_option += 1 unless @selected_option == @options.length - 1
+          when K_UP then
+            @selected_option = @selected_option == 0 ? @options.length - 1 : @selected_option - 1
+          when K_DOWN then @selected_option = (@selected_option + 1) % @options.length
           when K_RETURN then @options[@selected_option].action.call
           when K_ESCAPE then close_menu
         end
@@ -40,19 +36,19 @@ module ConnectFour
       private
 
       def draw_title
-        font = TTF.new(@font_name, @title_font_size)
-		    text = font.render(@title, true, @text_color)
+        font = TTF.new(@font_name, TITLE_FONT_SIZE)
+		    text = font.render(@title, true, TEXT_COLOR)
 		    render_text_centered(text, 0)
       end
 
       def draw_options
-        font = TTF.new(@font_name, @options_font_size)
+        font = TTF.new(@font_name, TEXT_FONT_SIZE)
         @options.map(&:name).each_with_index do |option, index|
           text = index == @selected_option ?
-            font.render(option, true, @text_color, @selected_option_background) :
-            font.render(option, true, @text_color)
+            font.render(option, true, TEXT_COLOR, DARK_BACKGROUND) :
+            font.render(option, true, TEXT_COLOR)
 
-          offset = 2 * index * @options_font_size + @title_font_size * 2
+          offset = 2 * index * TEXT_FONT_SIZE + TITLE_FONT_SIZE * 2
           render_text_centered(text, offset)
         end
       end

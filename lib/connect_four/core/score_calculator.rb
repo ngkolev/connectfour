@@ -12,8 +12,13 @@ module ConnectFour
       def score
         @total_score = 0
         MatrixVisitor::get_visitors(@board.board).each do |visitor|
-          add_to_score(@player, visitor, 1)
-          add_to_score(other_player(@player), visitor, -1)
+          winner = @board.winner
+          if winner.nil?
+            add_to_score(@player, visitor, 1)
+            add_to_score(other_player(@player), visitor, -1)
+          else
+            @total_score = winner == @player ? Integer::MAX : Integer::MIN
+          end
         end
         @total_score
       end

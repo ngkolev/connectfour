@@ -1,6 +1,7 @@
 module ConnectFour
   module ConnectFourShell
     module ShellCommands
+      include Core
       include Core::Util
       include Serialization
 
@@ -50,7 +51,7 @@ module ConnectFour
       def save_game(name)
         if @game
           game_object = Game.new(@game.board, @game.depth, @game.ai_player)
-          @serializer.serialize(game_object)
+          @serializer.serialize(name, game_object)
           @output << "Your game is saved"
         else
           @output << "You are not playing a game. There is nothing to be saved"
@@ -60,10 +61,11 @@ module ConnectFour
       def load_game(name)
         game_object = @serializer.deserialize(name)
         if game_object
-          game = @serializer.load(name)
+          game = @serializer.deserialize(name)
           if game
             @game = GameEngine.from_board(game.board, game.depth, game.ai_player)
-            @output << "Game loaded"
+            @output << "Game loaded. It's your turn\n"
+            print_board
           else
             @output << "Game with that name doesn't exist"
           end

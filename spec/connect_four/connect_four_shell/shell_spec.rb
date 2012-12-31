@@ -2,10 +2,13 @@ require 'spec_helper'
 
 module ConnectFour
   module ConnectFourShell
+    DummySettings = Struct.new(:difficulty, :ai_player, :save_method, :board_size, :cells_to_win)
+
     describe Shell do
 
       let(:shell) do
-        shell = ConnectFour::ConnectFourShell::Shell.new
+        settings = DummySettings.new(3, :second, :file, 10, 4)
+        shell = ConnectFour::ConnectFourShell::Shell.new(settings)
         shell.invoke('difficulty 1')
         shell
       end
