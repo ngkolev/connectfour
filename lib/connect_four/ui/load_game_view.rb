@@ -6,13 +6,17 @@ module ConnectFour
       def initialize(main_view)
         super(main_view, 'Load game')
         @main_view.serializer.names.each do |name|
-          add_option(name, lambda { @main_view.serializer.load(name) })
+          add_option(name, lambda { @main_view.load_game(name) })
         end
       end
 
       def close_menu
         @main_view.open_home
       end
+
+      private
+
+
     end
   end
 end

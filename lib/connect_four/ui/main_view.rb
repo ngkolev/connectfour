@@ -45,6 +45,12 @@ module ConnectFour
         @view = GameBoardView.new(self)
       end
 
+      def load_game(name)
+        game = @serializer.deserialize(name)
+        @game = Core::GameEngine.from_board(game.board, game.depth, game.ai_player, game.cells_to_win)
+        @view = GameBoardView.new(self)
+      end
+
       def open_load_game_menu
         @home = @view
         @view = LoadGameView.new(self)

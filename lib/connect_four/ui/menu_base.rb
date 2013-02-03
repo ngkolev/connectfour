@@ -23,7 +23,8 @@ module ConnectFour
         case key
           when K_UP then
             @selected_option = @selected_option == 0 ? @options.length - 1 : @selected_option - 1
-          when K_DOWN then @selected_option = (@selected_option + 1) % @options.length
+          when K_DOWN then
+            @selected_option = (@selected_option + 1) % @options.length unless @options.empty?
           when K_RETURN then @options[@selected_option].action.call
           when K_ESCAPE then close_menu
         end

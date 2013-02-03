@@ -7,7 +7,7 @@ module ConnectFour
     describe Shell do
 
       let(:shell) do
-        settings = DummySettings.new(3, :second, :file, 10, 4)
+        settings = DummySettings.new(3, :second, :none, 10, 4)
         shell = ConnectFour::ConnectFourShell::Shell.new(settings)
         shell.invoke('difficulty 1')
         shell
@@ -68,13 +68,6 @@ module ConnectFour
           it "reads the set value" do
             shell.invoke('difficulty 3')
             shell.invoke('difficulty').should match /3/
-          end
-        end
-
-        describe "save-method" do
-          it "reads the set value" do
-            shell.invoke('save-method file')
-            shell.invoke('save-method').should match /file/
           end
         end
 

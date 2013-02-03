@@ -16,8 +16,8 @@ module ConnectFour
         @human_player  = other_player(ai_player)
       end
 
-      def GameEngine.from_board(board, depth, ai_player)
-        engine = GameEngine.new(0, 0, depth, ai_player)
+      def GameEngine.from_board(board, depth, ai_player, cells_to_win)
+        engine = GameEngine.new(0, depth, cells_to_win, ai_player)
         engine.current_player = ai_player == :first ? :second : :first
         engine.board = board
         engine
@@ -47,7 +47,7 @@ module ConnectFour
       def ai_move
         best_move = nil
         alpha = Integer::MIN
-        @board.generate_valid_moves(@current_player).each do |move|
+        @board.generate_valid_moves.each do |move|
           evaluation_board = board.move(move, @current_player)
           score = negamax(evaluation_board, @depth, alpha, Integer::MAX, @current_player)
           if alpha < score
@@ -64,7 +64,7 @@ module ConnectFour
       def negamax(board, depth, alpha, beta, player)
         score = ScoreCalculator.new(player, board).score
         return score if board.last_move? or depth == 0
-        board.generate_valid_moves(player).each do |move|
+        board.generate_valid_moves.each do |move|
           new_board = board.move(move, player)
           other_player = other_player(player)
           score = -negamax(new_board, depth - 1, -beta, - alpha, other_player)

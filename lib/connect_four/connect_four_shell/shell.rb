@@ -40,7 +40,7 @@ module ConnectFour
         else
           operation.call(*params)
           result = @output
-          @output = ""
+          @output = ''
           result
         end
       end

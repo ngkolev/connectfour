@@ -20,7 +20,7 @@ module ConnectFour
         Board.new(@size, @cells_to_win, board_clone)
       end
 
-      def generate_valid_moves(player)
+      def generate_valid_moves
         @size.times.select { |y| valid_move?(y) }
       end
 

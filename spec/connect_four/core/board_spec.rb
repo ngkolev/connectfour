@@ -8,17 +8,17 @@ module ConnectFour
 
       describe "#generate_valid_moves" do
         it "has all moves available if the board is empty" do
-          board.generate_valid_moves(:first).to_a.should eq (0..4).to_a
+          board.generate_valid_moves.to_a.should eq (0..4).to_a
         end
 
         it "has no moves available if the board is full" do
           board.board = 5.times.map { [:first] * 5 }
-          board.generate_valid_moves(:first).should be_empty
+          board.generate_valid_moves.should be_empty
         end
 
         it "has moves in columns that are not full" do
           board.board = 5.times.map { [:first] + [nil] * 4 }
-          board.generate_valid_moves(:first).to_a.should eq (1..4).to_a
+          board.generate_valid_moves.to_a.should eq (1..4).to_a
         end
       end
 

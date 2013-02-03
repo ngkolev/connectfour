@@ -13,7 +13,7 @@ require_relative 'connect_four/serialization/serializer'
 require_relative 'connect_four/serialization/file_serializer'
 require_relative 'connect_four/serialization/in_memory_serializer'
 require_relative 'connect_four/serialization/mongo_serializer'
-require_relative 'connect_four/serialization/sqlite_serializer'
+require_relative 'connect_four/serialization/sql_serializer'
 
 require_relative 'connect_four/configurations'
 

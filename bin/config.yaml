@@ -1,13 +1,16 @@
 mongo_connection_string: localhost
 mongo_port: 27017
-mongo_database_name: connect_four_db
+mongo_database_name: connect_four
 
-sql_connection_string: THIS_SHOULD_BE_THE_CONN_STRING
+mysql_address: 127.0.0.1
+mysql_name: niko
+mysql_pass: 123_qwe
+mysql_db_name: connectfour
 
 save_file_path: ../saves
 
 difficulty: 2
 ai_player: second
-save_method: file
+save_method: sql
 board_size: 10
 cells_to_win: 4
