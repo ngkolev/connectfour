@@ -17,7 +17,7 @@ module ConnectFour
             add_to_score(@player, visitor, 1)
             add_to_score(other_player(@player), visitor, -1)
           else
-            @total_score = winner == @player ? Integer::MAX : Integer::MIN
+            return winner == @player ? Integer::MAX : Integer::MIN
           end
         end
         @total_score
@@ -44,7 +44,7 @@ module ConnectFour
 
       def add_to_score_if_required(captured, empty, sign)
         if(@board.cells_to_win <= captured + empty)
-          @total_score += sign * (captured * 1000 + empty * 100)
+          @total_score += sign * (captured * 1000 + empty * 10)
         end
       end
     end

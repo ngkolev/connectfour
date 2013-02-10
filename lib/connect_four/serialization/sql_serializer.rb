@@ -34,7 +34,8 @@ module ConnectFour
       def load(name)
         with_connection do |connection|
           query = connection.query("SELECT game_coded FROM saves WHERE game_name = '#{name}'")
-          query.fetch_row[0]
+          row = query.fetch_row
+          row[0] if row
         end
       end
 

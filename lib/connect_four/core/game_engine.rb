@@ -48,8 +48,8 @@ module ConnectFour
         best_move = nil
         alpha = Integer::MIN
         @board.generate_valid_moves.each do |move|
-          evaluation_board = board.move(move, @current_player)
-          score = negamax(evaluation_board, @depth, alpha, Integer::MAX, @current_player)
+          evaluation_board = board.move(move, @ai_player)
+          score = negamax(evaluation_board, @depth, Integer::MIN, Integer::MAX, @current_player)
           if alpha < score
             alpha = score
             best_move = move
@@ -62,12 +62,12 @@ module ConnectFour
       private
 
       def negamax(board, depth, alpha, beta, player)
-        score = ScoreCalculator.new(player, board).score
+        score = ScoreCalculator.new(player, board).score * (depth + 1)
         return score if board.last_move? or depth == 0
         board.generate_valid_moves.each do |move|
           new_board = board.move(move, player)
           other_player = other_player(player)
-          score = -negamax(new_board, depth - 1, -beta, - alpha, other_player)
+          score = -negamax(new_board, depth - 1, -beta, -alpha, other_player)
           return score if beta <= score
           alpha = score if alpha <= score
         end

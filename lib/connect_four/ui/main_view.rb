@@ -37,6 +37,7 @@ module ConnectFour
       end
 
       def start_new_game
+        create_game_objects
         @home = @view
         @view = GameBoardView.new(self)
       end

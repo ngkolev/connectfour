@@ -39,7 +39,7 @@ module ConnectFour
           'Too many command parameters'
         else
           operation.call(*params)
-          result = @output
+          result = @output    t
           @output = ''
           result
         end

@@ -93,8 +93,8 @@ module ConnectFour
           engine.winner.should be_nil
           engine.board.board.should eq\
           [
-            [nil, nil, :second],
-            [nil, :first, :first],
+            [nil, nil, nil],
+            [:second, :first, :first],
             [:first, :second, :second]
           ]
         end

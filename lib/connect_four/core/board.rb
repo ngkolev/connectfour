@@ -67,7 +67,7 @@ module ConnectFour
           line.each do |cell|
             if cell == player
               populated += 1
-              return true if cells_to_win <= populated
+              return true if @cells_to_win <= populated
             else
               populated = 0
             end
