@@ -5,7 +5,7 @@ _connectfour_ is my project for [Ruby course in the University of Sofia](http://
 
 ## Project goals
 
-* **AI** - computer player using alpha-beta negamax _alpha-beta pruning_
+* **AI** - computer player using negamax _alpha-beta pruning_
 * **UI** - two user interfaces. One using rubygame and another one using shell
 * **Game serialization** - in-memory, file-based, _SQLite_, _MongoDB_
 * **BDD** - using _rspec_
